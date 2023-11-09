@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
-@EnableJpaRepositories
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long > {
     Optional<Usuario> findOneByEmailAndPassword(String email, String password);

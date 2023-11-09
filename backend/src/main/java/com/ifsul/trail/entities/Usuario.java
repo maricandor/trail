@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.List;
 
-import java.util.ArrayList;
 
 @Getter
 @Setter
@@ -14,8 +14,6 @@ import java.util.ArrayList;
 @NoArgsConstructor
 
 @Table(name = "usuarios")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tipo")
 @Entity
 public class Usuario {
     @Id
@@ -28,5 +26,9 @@ public class Usuario {
     private String password;
     @Column(name = "usuario_nome", length =255)
     private String nome;
+    @OneToMany(mappedBy = "usuario")
+    private List<Curso> cursos;
 
+    public Usuario(Long id, String nome, String email, String encode) {
+    }
 }

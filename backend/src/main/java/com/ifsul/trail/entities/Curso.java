@@ -19,6 +19,8 @@ public class Curso {
     private String nome;
     private String descricao;
     private int cargaHoraria;
-
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
 }

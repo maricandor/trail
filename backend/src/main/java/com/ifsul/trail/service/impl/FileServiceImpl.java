@@ -2,31 +2,32 @@ package com.ifsul.trail.service.impl;
 
 import com.ifsul.trail.service.FileService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Service
 public class FileServiceImpl implements FileService {
+    /*
     @Value("${file.path}")
     private String filePath;
+*/
     @Override
     public void save(MultipartFile file) {
-        String dir = "/" + filePath;
-                // System.getProperty("user.dir") +
+        ClassPathResource resource = new ClassPathResource("/uploads");
+//        System.out.println(new ClassPathResource("").getFile());
         try {
-            file.transferTo(new File(dir + "/" + file.getOriginalFilename()));
+            System.out.println(resource.getFile().getAbsolutePath());
+            File directory = resource.getFile();
+            Path targetPath = Paths.get(directory.getAbsolutePath(), file.getOriginalFilename());
+            file.transferTo(targetPath.toFile());
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        /*
-        // Verifica se o arquivo foi salvo com sucesso
-        File fileSaved = new File(dir + "/" + file.getOriginalFilename());
-        if (!fileSaved.exists()) {
-            throw new RuntimeException("O arquivo não foi salvo com sucesso");
-        }
-         */
     }
 }
