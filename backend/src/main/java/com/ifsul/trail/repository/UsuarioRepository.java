@@ -1,13 +1,12 @@
 package com.ifsul.trail.repository;
 
-import com.ifsul.trail.entities.Usuario;
+import com.ifsul.trail.entities.usuario.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, Long > {
-    Optional<Usuario> findOneByEmailAndPassword(String email, String password);
-    Usuario findByEmail(String email);
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+
+    UserDetails findByLogin(String login);
 }

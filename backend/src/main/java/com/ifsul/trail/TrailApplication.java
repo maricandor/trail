@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication(exclude= SecurityAutoConfiguration.class)
 @ComponentScan(basePackages = "com.ifsul.trail")
+
 public class TrailApplication {
 
 	public static void main(String[] args) {

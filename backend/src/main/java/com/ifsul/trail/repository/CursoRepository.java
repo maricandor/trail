@@ -1,6 +1,6 @@
 package com.ifsul.trail.repository;
 
-import com.ifsul.trail.entities.Curso;
+import com.ifsul.trail.entities.curso.Curso;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

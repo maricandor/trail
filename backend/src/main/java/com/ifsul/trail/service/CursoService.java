@@ -1,12 +1,11 @@
 package com.ifsul.trail.service;
 
-import com.ifsul.trail.entities.Curso;
+import com.ifsul.trail.entities.curso.Curso;
 import com.ifsul.trail.repository.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class CursoService {
