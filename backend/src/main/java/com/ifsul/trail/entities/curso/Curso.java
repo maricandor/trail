@@ -31,4 +31,7 @@ public class Curso {
         this.descricao = data.descricao();
         this.cargaHoraria = data.cargaHoraria();
     }
+
+    public void updateCurso(CursoRequestDTO body) {
+    }
 }

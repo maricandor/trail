@@ -11,30 +11,65 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/cursos")
+@RequestMapping("/curso")
 public class CursoController {
 
     @Autowired
      CursoRepository repository;
 
-    @PostMapping
-    public ResponseEntity postProduct(@RequestBody @Valid CursoRequestDTO body){
-        Curso newProduct = new Curso(body);
+    @PostMapping("/add")
+    public ResponseEntity postCurso(@RequestBody @Valid CursoRequestDTO body){
+        Curso newCurso = new Curso(body);
 
-        this.repository.save(newProduct);
+        this.repository.save(newCurso);
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping
-    public ResponseEntity getAllProducts(){
-        List<CursoResponseDTO> productList = this.repository.findAll().stream().map(CursoResponseDTO::new).toList();
+    @GetMapping("/findAll")
+    public ResponseEntity getAllCursos(){
+        List<CursoResponseDTO> cursoList = this.repository.findAll().stream().map(CursoResponseDTO::new).toList();
 
-        return ResponseEntity.ok(productList);
+        return ResponseEntity.ok(cursoList);
     }
+    @GetMapping("/find/{id}")
+    public ResponseEntity getCursoById(@PathVariable Long id) {
+        Optional<Curso> cursoOptional = repository.findById(id);
 
+        if (cursoOptional.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Curso curso = cursoOptional.get();
+        CursoResponseDTO responseDTO = new CursoResponseDTO(curso);
+
+        return ResponseEntity.ok(responseDTO);
+    }
+    @PutMapping("/update/{id}")
+    public ResponseEntity updateCurso(@PathVariable Long id, @RequestBody @Valid CursoRequestDTO body) {
+        Optional<Curso> existingCursoOptional = repository.findById(id);
+
+        if (existingCursoOptional.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Curso existingCurso = existingCursoOptional.get();
+        existingCurso.updateCurso(body);
+        repository.save(existingCurso);
+
+        return ResponseEntity.ok().build();
+    }
+    @DeleteMapping("/drop/{id}")
+    public ResponseEntity deleteCurso(@PathVariable Long id) {
+        if (!repository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        repository.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
 
 
 

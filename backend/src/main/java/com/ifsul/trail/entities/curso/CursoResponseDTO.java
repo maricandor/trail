@@ -1,5 +1,6 @@
 package com.ifsul.trail.entities.curso;
 
+
 public record CursoResponseDTO(
         Long id,
         String nome,

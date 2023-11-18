@@ -51,12 +51,12 @@ public class AuthenticationController {
     public List<Usuario> listarUsuario() {
         return repository.findAll();
     }
-    @GetMapping(path = {"/find/{id}"})
+    @GetMapping("/find/{id}")
     public ResponseEntity<Usuario> buscarIdUsuario(@PathVariable long id) {
         return repository.findById(id).map(record -> ResponseEntity.ok().body(record))
                 .orElseThrow(() -> new ResourceNotFoundException("Não existe este id de usuario :" + id));
     }
-    @PutMapping({"update/{id}"})
+    @PutMapping("/update/{id}")
     public ResponseEntity<Usuario> atualizarUsuario(Long id, Usuario usuarioDetalhes){
         Usuario usuario = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Não existe este id de usuario :" + id + " Confirme os dados inseridos!!"));
@@ -67,7 +67,7 @@ public class AuthenticationController {
         Usuario atualizausuario = repository.save(usuario);
         return ResponseEntity.ok(atualizausuario);
     }
-    @DeleteMapping(path ={"delete/{id}"})
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Object> deleteUsuarioService(@PathVariable long id) {
         return repository.findById(id).map(record -> {
             repository.deleteById(id);
