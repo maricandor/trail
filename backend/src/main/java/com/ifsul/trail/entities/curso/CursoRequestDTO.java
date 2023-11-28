@@ -8,6 +8,7 @@ public record CursoRequestDTO(
     String nome,
     @NotNull
     String descricao,
+    @NotNull
     Long cargaHoraria
         ) {
 }

@@ -26,15 +26,19 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
+                        /*
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.DELETE, "/auth/delete/{id}").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/auth/update/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/auth/findAll").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/auth/delete/{cursoId}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/auth/update/{cursoId}").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/curso/add").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/curso/update/{id}").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/curso/drop/{id}").hasRole("ADMIN")
-                        .anyRequest().authenticated()
+                        .requestMatchers(HttpMethod.PUT, "/curso/update/{cursoId}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/curso/drop/{cursoId}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/{cursoId}/disciplina").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/vincular-requisito").permitAll()
+                        */
+                        .anyRequest().permitAll()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

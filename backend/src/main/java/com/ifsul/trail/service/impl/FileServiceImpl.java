@@ -1,5 +1,6 @@
 package com.ifsul.trail.service.impl;
 
+
 import com.ifsul.trail.service.FileService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
@@ -13,22 +14,18 @@ import java.nio.file.Paths;
 
 @Service
 public class FileServiceImpl implements FileService {
-    /*
-    @Value("${file.path}")
-    private String filePath;
-*/
-    @Override
-    public void save(MultipartFile file) {
-        ClassPathResource resource = new ClassPathResource("/uploads");
+        @Override
+        public void save(MultipartFile file) {
+            ClassPathResource resource = new ClassPathResource("/uploads");
 //        System.out.println(new ClassPathResource("").getFile());
-        try {
-            System.out.println(resource.getFile().getAbsolutePath());
-            File directory = resource.getFile();
-            Path targetPath = Paths.get(directory.getAbsolutePath(), file.getOriginalFilename());
-            file.transferTo(targetPath.toFile());
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+            try {
+                System.out.println(resource.getFile().getAbsolutePath());
+                File directory = resource.getFile();
+                Path targetPath = Paths.get(directory.getAbsolutePath(), file.getOriginalFilename());
+                file.transferTo(targetPath.toFile());
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
         }
-    }
 
-}
+    }

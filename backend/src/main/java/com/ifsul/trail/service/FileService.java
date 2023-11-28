@@ -6,5 +6,5 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public interface FileService {
     void save(MultipartFile file);
- //   String extrairTexto(byte[] conteudoDoArquivo);
+    //   String extrairTexto(byte[] conteudoDoArquivo);
 }

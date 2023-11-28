@@ -3,10 +3,16 @@ package com.ifsul.trail.controller;
 import com.ifsul.trail.entities.curso.Curso;
 import com.ifsul.trail.entities.curso.CursoRequestDTO;
 import com.ifsul.trail.entities.curso.CursoResponseDTO;
+import com.ifsul.trail.entities.disciplina.AddPreReqDTO;
+import com.ifsul.trail.entities.disciplina.Disciplina;
+import com.ifsul.trail.entities.disciplina.DisciplinaDTO;
 import com.ifsul.trail.repository.CursoRepository;
 import com.ifsul.trail.service.CursoService;
+import com.ifsul.trail.service.DisciplinaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,101 +25,52 @@ import java.util.Optional;
 public class CursoController {
 
     @Autowired
-     CursoRepository repository;
-
-    @PostMapping("/add")
-    public ResponseEntity postCurso(@RequestBody @Valid CursoRequestDTO body){
-        Curso newCurso = new Curso(body);
-
-        this.repository.save(newCurso);
-        return ResponseEntity.ok().build();
-    }
-
-    @GetMapping("/findAll")
-    public ResponseEntity getAllCursos(){
-        List<CursoResponseDTO> cursoList = this.repository.findAll().stream().map(CursoResponseDTO::new).toList();
-
-        return ResponseEntity.ok(cursoList);
-    }
-    @GetMapping("/find/{id}")
-    public ResponseEntity getCursoById(@PathVariable Long id) {
-        Optional<Curso> cursoOptional = repository.findById(id);
-
-        if (cursoOptional.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-
-        Curso curso = cursoOptional.get();
-        CursoResponseDTO responseDTO = new CursoResponseDTO(curso);
-
-        return ResponseEntity.ok(responseDTO);
-    }
-    @PutMapping("/update/{id}")
-    public ResponseEntity updateCurso(@PathVariable Long id, @RequestBody @Valid CursoRequestDTO body) {
-        Optional<Curso> existingCursoOptional = repository.findById(id);
-
-        if (existingCursoOptional.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-
-        Curso existingCurso = existingCursoOptional.get();
-        existingCurso.updateCurso(body);
-        repository.save(existingCurso);
-
-        return ResponseEntity.ok().build();
-    }
-    @DeleteMapping("/drop/{id}")
-    public ResponseEntity deleteCurso(@PathVariable Long id) {
-        if (!repository.existsById(id)) {
-            return ResponseEntity.notFound().build();
-        }
-        repository.deleteById(id);
-        return ResponseEntity.ok().build();
-    }
-
-
-
-
-
-
-
-
-
-
-    /*
+    private CursoRepository repository;
     @Autowired
     private CursoService cursoService;
+    @Autowired
+    private DisciplinaService disciplinaService;
 
+    @PostMapping("/add")
+    public ResponseEntity postCurso(@RequestBody @Valid CursoRequestDTO body) {
+        cursoService.postCurso(new Curso(body));
+        return ResponseEntity.ok().build();
+    }
+    @GetMapping("/findAll")
+    public ResponseEntity getAllCursos() {
+        List<CursoResponseDTO> cursoList = cursoService.getAllCursos().stream()
+                .map(CursoResponseDTO::new)
+                .toList();
+        return ResponseEntity.ok(cursoList);
+    }
+    @GetMapping("/find/{nome}")
+    public ResponseEntity getCursoByNome(@PathVariable String nome) {
+        Curso curso = cursoService.getCursoByNome(nome);
 
-    @PostMapping("/addCurso")
-    public Curso addCurso(@RequestBody Curso curso){
-        return cursoService.saveCurso(curso);
+        if (curso == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        CursoResponseDTO responseDTO = new CursoResponseDTO(curso);
+        return ResponseEntity.ok(responseDTO);
     }
-    @PostMapping("/addCursos")
-    public List<Curso> addCursos(@RequestBody List<Curso> cursos){
-        return cursoService.saveCursos(cursos);
-    }
-    @GetMapping("find")
-    public List<Curso> findAllCursos(){
-        return cursoService.getCursos();
-    }
-    @GetMapping("find/{id}")
-    public Curso findCursoById(@PathVariable long id){
-        return cursoService.getCursoById(id);
-    }
-    @GetMapping("find/{nome}")
-    public Curso findCursoByNome(@PathVariable String nome){
-        return cursoService.getCursoByNome(nome);
-    }
-    @PutMapping("/update")
-    public Curso updateCurso(@RequestBody Curso curso){
-        return cursoService.updateCurso(curso);
-    }
-    @DeleteMapping("/delete/{id}")
-    public String deleteCurso(@PathVariable long id){
-        return cursoService.deleteCurso(id);
+    @PutMapping("/update/{cursoId}")
+    public ResponseEntity updateCurso(@PathVariable Long cursoId, @RequestBody @Valid CursoRequestDTO body) {
+        cursoService.updateCurso(cursoId, new Curso(body));
+        return ResponseEntity.ok().build();
     }
 
-     */
+    @DeleteMapping("/drop/{cursoId}")
+    public ResponseEntity deleteCurso(@PathVariable Long cursoId) {
+        cursoService.deleteCurso(cursoId);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/{cursoId}/{disciplinaId}")
+    public void relacionarDisciplinaAoCurso(@PathVariable long cursoId, @PathVariable long disciplinaId){
+        cursoService.vincularDisciplina(cursoId, disciplinaId);
+
+    }
+
 }
 

@@ -3,7 +3,7 @@ const closeBtn = document.querySelector(".close-btn");
 const chatbox = document.querySelector(".chatbox");
 const chatInput = document.querySelector(".chat-input textarea");
 const sendChatBtn = document.querySelector(".chat-input span");
-const backendUrl = "http://localhost:8081/upload";
+const backendUrl = "http://localhost:8081";
 
 let userMessage = null;
 const API_KEY = "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";
