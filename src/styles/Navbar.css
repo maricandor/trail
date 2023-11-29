@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Titillium Web", sans-serif;
+}
+
+:root {
+	--mainColor: #ffffff;
+	--mainColorLight: #101728;
+	--secondaryColor: #073376;
+	--textColor: #000000;
+}
+a {
+	font-family: Inter;
+	text-decoration: none;
+	color: #000;
+  }  
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centraliza na horizontal */
+  width: 100%; /* Utiliza a largura completa da viewport */
+  height: 100px;
+  padding: 0 2rem;
+  background-color: var(--mainColor);
+  color: var(--textColor);
+}
+.navBar{
+	margin-left: 5%;
+    margin-right: 10%;
+}
+nav {
+	padding-left: 5%;
+    padding-right: 10%;
+	max-width: 1280px;
+	height: 70px;
+	margin-inline: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+nav a {
+  margin: 1rem;
+  color: var(--textColor);
+  text-decoration: none;
+  gap: 4em;
+
+}
+
+nav a:hover {
+	color: var(--secondaryColor);
+}
+
+header .nav-btn {
+	padding: 6px;
+  justify-content: flex-start;
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: var(--textColor);
+	visibility: hidden;
+	opacity: 0;
+	font-size: 1.8rem;
+}
+
+.btnlogin {
+  border-radius: 50px;
+  color: #000000;
+  font-size: 15px;
+  padding: 20% 20%;
+  padding-top: 10px;
+  margin-right: 2rem;
+  cursor: pointer;
+  width: 110px;
+  height: 40px;
+  border: none;
+}
+
+.btnlogin {
+  background-color: #FFD704;
+  font-size: 16px;
+  transition: background-color .5s;
+  text-align: center;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.btnlogin:hover {
+  background-color: #101728;
+  color: #ffffff;
+}
+
+header div,
+nav {
+	display: flex;
+	align-items: center;
+}
+
+@media only screen and (max-width: 1024px) {
+	header .nav-btn {
+		visibility: visible;
+		opacity: 1;
+		margin-right: 30%;
+	}
+
+	header nav {
+		position: fixed;
+		top: -100vh;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		background-color: var(--mainColorLight);
+		transition: 1s;
+	}
+
+	header .responsive_nav {
+		transform: translateY(100vh);
+	}
+
+	nav .nav-close-btn {
+		position: absolute;
+		top: 2rem;
+		right: 2rem;
+		color: var(--mainColor);
+		margin-left: 10%;
+	}
+
+	nav a {
+		font-size: 1.5rem;
+		color: var(--mainColor);
+
+	}
+}

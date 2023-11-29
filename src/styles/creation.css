@@ -1,0 +1,90 @@
+.menu-icon {
+    font-size: 24px; /* Tamanho do ícone do menu */
+    cursor: pointer;
+    margin-right: 20px; /* Adapte a margem conforme necessário */
+  }
+  
+  /* Adicione estilos para o menu quando estiver aberto */
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 60px; /* Ajuste conforme necessário para evitar sobreposição com outros elementos da página */
+    right: 0;
+    background-color: #fff; /* Cor de fundo do menu */
+    border: 1px solid #ddd; /* Borda do menu */
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra do menu */
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .navbar li {
+    margin-bottom: 10px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #333; /* Cor dos links do menu */
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+
+/* creation.css */
+/* Estilo para o contêiner central */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    /* Ajusta a altura conforme necessário */
+}
+
+/* Estilo para o formulário de banner */
+.banner-form {
+    max-width: 600px;
+    width: 100%;
+    /* Adiciona largura total ao formulário */
+    padding: 20px;
+    /* Adiciona algum espaço interno ao formulário */
+    box-sizing: border-box;
+    border-radius: 16px;
+    border: 2px solid #FFF;
+    background: #121C32;
+    margin-left: 30%;
+    margin-top: -6%;
+}
+
+/* Estilo para o campo de adicionar título */
+#bannerTitle {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Placeholder para o campo de adicionar título */
+#bannerTitle::placeholder {
+    color: #999;
+}
+
+/* Estilo para o botão de salvar */
+#saveButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#saveButton:hover {
+    background-color: #45a049;
+}

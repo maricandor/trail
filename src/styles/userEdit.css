@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Titillium Web", sans-serif;
+}
+
+:root {
+    --mainColor: #ffffff;
+    --mainColorLight: #101728;
+    --secondaryColor: #073376;
+    --textColor: #000000;
+}
+
+.user-edit {
+    margin-top: -21rem;
+    display: flex;
+    align-items: center;
+    margin-right: 40rem;
+}
+
+.user-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.edit-text {
+    padding-left: 20px;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 130%;
+    /* 67.6px */
+}
+
+.btnEdit1 {
+    width: 118px;
+    height: 112px;
+    background-color: #FFD704;
+    border-radius: 100%;
+    border: none;
+    stroke: #FFF;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 52px;
+    font-weight: 800;
+}
+
+.card-config1,
+.card-config2,
+.card-config3 {
+    margin-top: 2rem;
+    width: 100%;
+    height: 8rem;
+    background-color: #fff;
+    border-top: 2px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1% 2%;
+    box-sizing: border-box;
+    /* Adicionado para incluir borda na largura e altura */
+}
+
+.userText {
+    color: #000;
+    margin-top: -8rem;
+    text-align: left;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -0.48px;
+}
+
+.user-info {
+    margin-top: -34rem;
+    color: #000;
+    text-align: left;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.4px;
+}
+
+.btnEdit {
+    width: 118px;
+    height: 40px;
+    align-self: flex-end;
+    background-color: #FFD704;
+    border: none;
+    color: #000;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: -28rem;
+    margin-right: 4rem;
+}
+
+.right-info {
+    margin-top: 22rem;
+    /* Ajustado para criar espaço entre os elementos à direita */
+}

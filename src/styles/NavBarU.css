@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Titillium Web", sans-serif;
+}
+
+:root {
+    --mainColor: #ffffff;
+    --mainColorLight: #101728;
+    --secondaryColor: #073376;
+    --textColor: #000000;
+}
+.huser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Centraliza na horizontal */
+    width: 100%;
+    /* Utiliza a largura completa da viewport */
+    height: 100px;
+    padding: 0 2rem;
+    background: linear-gradient(0deg, #0F1B39 0%, #0F1B39 100%);
+    color: var(--textColor);
+    margin-right: 55%;
+}
+/* ... (Your existing imports and styles) */
+
+.logo-container {
+    flex-grow: 1; /* Grow to take available space */
+    margin-left: 0.001rem;
+}
+.logo {
+    width: 15%; /* Make the logo fill its container */
+}
+
+.user-container {
+    display: flex;
+    align-items: center;
+    margin-right: 1.5%;
+}
+.user-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.user-text {
+    margin-right: 10px; 
+    color: #ffffff;
+}
+
+.btnUser {
+    width: 43px;
+    height: 42px;
+    text-align: center;
+    background-color: #FFD704;
+    border-radius: 100%;
+}

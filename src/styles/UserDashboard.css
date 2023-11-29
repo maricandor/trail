@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-content {
+    margin-top: 1rem;
+    margin-left: 7.2%;
+    width: 43rem;
+    height: 38rem;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #ffff;
+}
+
+.right-content {
+    margin-left: 49.8rem;
+    margin-top: -38rem;
+    width: 18rem;
+    height: 12rem;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #ffff;
+}
+
+.bottom-content {
+    margin-top: -0.4rem; /* Adjust this value for the desired margin */
+    margin-left: 49.8rem;
+    width: 18rem;
+    height: 20rem;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #ff0000;
+}
+.bottom-text {
+    font-family: Inter;
+    margin-left: 49.8rem;
+    margin-top: 4rem; /* Adjust this value according to your layout */
+    font-size: 17px;
+    font-weight: 200;
+    letter-spacing: -0.48px;
+}

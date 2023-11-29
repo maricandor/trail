@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Titillium Web", sans-serif;
+}
+
+:root {
+    --mainColor: #ffffff;
+    --mainColorLight: #101728;
+    --secondaryColor: #073376;
+    --textColor: #000000;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    /* 1fr para o conteúdo principal, auto para a barra à direita */
+    height: 100vh;
+    /* Garante que a altura da grade seja a altura da tela */
+    /* Remove margens padrão do corpo */
+}
+
+.container-left {
+    margin-bottom: 0.8rem;
+    margin-top: 0.8rem;
+    width: 20rem;
+    height: 97.8%;
+    flex-shrink: 0;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    background: #101728;
+    color: #ffffff;
+}
+
+.top-collum {
+    padding-top: 2rem;
+    margin-left: 5rem;
+}
+
+.link-white {
+    color: #ffffff;
+}
+
+.link-white:hover {
+    background: #acb8d5;
+    width: 20px;
+    height: 30px;
+}
+
+.trilha-container {
+    display: flex;
+    align-items: center;
+    margin-top: 4rem;
+    margin-right: 0;
+}
+
+.btnTrail {
+    margin-top: 0.1rem;
+    margin-left: 0.5rem;
+    width: 29px;
+    height: 28px;
+    text-align: center;
+    background-color: #FFD704;
+    border-radius: 4px;
+    border: none;
+}
+
+.iconTrail {
+    width: 60%;
+    /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto;
+    align-items: center;
+    background-repeat: no-repeat;
+    /* Evita que a imagem se repita */
+}
+
+.logout {
+    justify-content: baseline;
+    margin-top: 20rem;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    /* Alinha verticalmente ao centro */
+}
+
+.container-right {
+    margin-bottom: 2rem;
+    margin-top: 0.8rem;
+    width: 71.2rem;
+    height: 97.8%;
+    flex-shrink: 0;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    background: #101728;
+    color: #ffffff;
+}
+
+.logot {
+    margin-left: 15px;
+    /* Ajuste conforme necessário para a separação entre o texto e a imagem */
+    width: 10%;
+}
+
+.main-text {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 200;
+    letter-spacing: -0.48px;
+    padding-top: 0.5rem;
+}
+
+.tittle {
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.64px;
+}
+
+.submitUpload {
+    width: 300px;
+    height: 55px;
+    font-size: 18px;
+    font-weight: 700;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 3px solid #FFF;
+    background: #101728;
+    color: #ffffff;
+    margin-left: 35%;
+    margin-top: 6%;
+}
+
+.Upload {
+    margin-top: 5rem;
+    width: 738px;
+    margin-left: 15.5%;
+    height: 20rem;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 8px dashed #4578FC;
+    background: #FFF;
+}
+.trilha{
+    margin-top: -1rem;
+}
