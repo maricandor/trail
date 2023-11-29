@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 15%;
+  margin-right: 34%;
+  display: flex;
+  height: auto;
+  align-items: center;
+  margin-top: 0;
+}
+
+.hero {
+  height: calc(100vh - 70px);
+  background: center / cover no-repeat url("");
+}
+
+@media (max-width: 650px) {
+  h1 {
+    font-family: 'Roboto';
+    font-size:  5px;
+}
+.main {
+  margin-left: 12%;
+  margin-right: 12%;
+  display: flex;
+  justify-content: space-between;
+}
+}
+.banner {
+  width: 100%;
+  flex-shrink: 0;
+  height: 24rem;
+  background: linear-gradient(81deg, rgba(69, 120, 252, 0.50) 0.6%, rgba(0, 224, 255, 0.32) 45.53%, rgba(0, 0, 0, 0.00) 99.77%), linear-gradient(180deg, rgba(7, 51, 118, 0.50) 0%, rgba(0, 148, 255, 0.00) 100%), #073376;
+  color: #fff;
+  text-align: center;
+  padding-top: 8%;
+}
+
+h1 .titulo-p {
+  margin-top: 0.0020em;
+  font-family: 'Roboto';
+  font-size: 60px;
+}
+
+p {
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Inter;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 200%;
+  letter-spacing: -0.56px;
+}
+
+.cta-btns {
+  margin-top: 1em;
+  justify-content: center;
+  display: inline-flex;
+  padding: 18px 36px 15px 47px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
+
+.cta-btns .secondary-cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 5%;
+}
+
+.secondary-cta {
+  font-size: 16px;
+  border-radius: 50px;
+  background: #FFD704;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  font-family: Inter;
+  padding-top: 8%;
+  padding-left: 20px;
+  height: 40px;
+  width: 140px;
+}
+
+.secondary-cta svg {
+  width: 15px;
+  transition: transform .3s;
+  margin-top: -6%;
+}
+
+.secondary-cta:hover svg {
+  transform: translateX(10px);
+}
+.main {
+  margin-left: 16%;
+  margin-right: 16%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2em;
+}
+
+h2 {
+    display: flex;
+    width: 412px;
+    height: 303px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #000;
+    font-family: Roboto;
+    font-size: 36px;
+    font-style: normal;
+    letter-spacing: -0.88px;
+  }
+
+.subhead {
+  color: #000;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 184%;
+  letter-spacing: -0.44px;
+  margin-top: -12vh;
+  
+}
+
+.imgComput {
+  width: 50%; 
+  height: 50%; /* Para manter a proporção da imagem */
+  flex-direction: column;
+  margin-top: 6vw;
+}
+.primary-cta{
+   background-color: #4578FC;
+   font-size: 0.8rem;
+   font-weight: bold;
+   color: #fff;
+   text-decoration: none;
+   border-radius: 8px;
+   padding: 1em 4em;
+   margin-left: 18%;
+}
+.primary-cta:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
