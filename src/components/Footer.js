@@ -10,16 +10,7 @@ const Footer = () => {
         <h1>
         <img src={logobranco} alt="logo"/>
         </h1>
-        <div>
-          <input
-            type="text"
-            placeholder="Enter Your ph.no"
-            className="text-gray-800"
-          />
-          <button className="bg-teal-400 hover:bg-teal-500 duration-300">
-            Request Code
-          </button>
-        </div>
+
       </div>
       <div className="footer-secondary">
         <span>© 2023 Trail Todos os direitos reservados.</span>

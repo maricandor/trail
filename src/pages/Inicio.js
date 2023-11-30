@@ -37,7 +37,7 @@ const Home = () => {
 
                 <img src={logocolorido} alt="logo" class='logo' />
 
-                <a href="/src/pages/Login.js">
+                <a href="/login">
                     <button className="btnlogin" onClick={(e) => {navigate('/login'); e.preventDefault()}}>Login</button>
                 </a>
 
@@ -47,7 +47,7 @@ const Home = () => {
                 <h1 className='titulo-p'>Bem-vindo ao Trail !</h1>
                 <p> Expanda os Horizontes da Educação em sua Instituição</p>
                 <div class="cta-btns">
-                    <a href="./Login.js" class="secondary-cta">
+                    <a href="./login" class="secondary-cta">
                         <span> Começar</span>
                         <svg viewBox="0 0 19 8" fill="none">
                             <path
@@ -66,7 +66,7 @@ const Home = () => {
                         personalizadas de acordo com os<br />
                         objetivos e necessidades específicas da <br />
                         sua instituição.<br/>
-                    <a href="./Login.js" class="primary-cta">SAIBA MAIS</a>
+                   
                     </p>
                 </div>
                 <img src={imgComput} alt="Comput" class='imgComput' />

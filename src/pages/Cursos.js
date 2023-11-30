@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import { cadastrarCurso } from './Api.js';
 import { FaBars, FaTimes } from 'react-icons/fa'; // Certifique-se de importar o ícone necessário
 import '../App';
 import Footer from '../components/Footer';
@@ -8,7 +9,51 @@ import "../styles/Cursos.css";
 import { Link, useNavigate } from 'react-router-dom';
 import logocolorido from "../images/logos/logocolorido.png";
 import imgComput from "../images/logos/imgComput.png"
+const urlback= "http://localhost:8081"
 
+
+const CadastroCurso = () => {
+	const [nome, setNome] = useState('');
+	const [descricao, setDescricao] = useState('');
+	const [cargaHoraria, setCargaHoraria] = useState('');
+//	const [token, setToken] = useState(null);
+  
+	// Sua lógica de login aqui para definir o token
+  
+	const handleCadastroCurso = async () => {
+	  try {
+		const data = await cadastrarCurso(nome, descricao, cargaHoraria);
+		console.log('Curso cadastrado com sucesso:', data);
+		// Adicione lógica adicional aqui conforme necessário.
+	  } catch (error) {
+		console.error('Erro durante o cadastro do curso:', error);
+		// Trate os erros conforme necessário.
+	  }
+	};
+  
+	return (
+	  <div>
+		<h1>Cadastro de Curso</h1>
+		<form>
+		  <label>Nome:</label>
+		  <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} />
+  
+		  <label>Descrição:</label>
+		  <input type="text" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
+  
+		  <label>Carga Horária:</label>
+		  <input type="text" value={cargaHoraria} onChange={(e) => setCargaHoraria(e.target.value)} />
+  
+		  <button type="button" onClick={handleCadastroCurso}>Cadastrar Curso</button>
+		</form>
+	  </div>
+	);
+  };
+  
+  export default CadastroCurso;
+
+//   CRIEI UM FORM SÓ PRA TESTAR
+/*
 const Home = () => {
 	const navigate = useNavigate();
 	const navRef = useRef();
@@ -16,7 +61,6 @@ const Home = () => {
 	const showNavbar = () => {
 		navRef.current.classList.toggle("responsive_nav");
 	};
-
 	return (
 		<>
 			<header>
@@ -46,7 +90,7 @@ const Home = () => {
 				<h1 className='cursos'>Cursos</h1>
 				<p>Use os filtros abaixo para explorar as opções de cursos</p>
 
-			{/*Search Bar*/}
+			{/*Search Bar
 			<div className="searchbar">
 				<form autoComplete="off">
 					<div className="finder">
@@ -73,5 +117,5 @@ const Home = () => {
 		</>
 	);
 }
-
 export default Home;
+*/
