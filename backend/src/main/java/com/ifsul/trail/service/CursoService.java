@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CursoService {
@@ -20,8 +21,9 @@ public class CursoService {
     @Autowired
     private DisciplinaRepository disciplinaRepository;
 
-    public Curso postCurso(Curso curso){
-        return cursoRepository.save(curso);
+    public Curso postCurso(Curso curso) {
+        Curso savedCurso = cursoRepository.save(curso);
+        return cursoRepository.findById(savedCurso.getCursoId()).orElse(null);
     }
     public List<Curso> getAllCursos(){
         return cursoRepository.findAll();
@@ -29,16 +31,16 @@ public class CursoService {
     public Curso getCursoByNome(String nome){
         return cursoRepository.findByNome(nome);
     }
+    public Curso getCursoById(Long cursoId) {
+        Optional<Curso> optionalCurso = cursoRepository.findById(cursoId);
+        return optionalCurso.orElse(null);
+    }
     public String deleteCurso(Long id){
         cursoRepository.deleteById(id);
         return "curso removido: " + id;
     }
-    public Curso updateCurso(Long id, Curso curso) {
-        Curso existingCurso = cursoRepository.findById(curso.getCursoId()).orElse(null);
-        existingCurso.setNome(curso.getNome());
-        existingCurso.setDescricao(curso.getDescricao());
-        existingCurso.setCargaHoraria(curso.getCargaHoraria());
-        return cursoRepository.save(existingCurso);
+    public void save(Curso curso) {
+        cursoRepository.save(curso);
     }
 
     public void vincularDisciplina(long cursoId, long disciplinaId) {

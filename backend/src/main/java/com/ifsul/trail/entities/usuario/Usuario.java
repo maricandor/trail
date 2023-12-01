@@ -31,10 +31,10 @@ public class Usuario implements UserDetails {
     @OneToMany(mappedBy = "usuario")
     private List<Curso> cursos;
 
-    public Usuario(String login, String password, UsuarioRole role, String nome){
+    public Usuario(String login, String password, String nome){
         this.login = login;
         this.password = password;
-        this.role = role;
+    //    this.role = role;
         this.nome = nome;
     }
     @Override
@@ -42,11 +42,8 @@ public class Usuario implements UserDetails {
         if(this.role == UsuarioRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
         else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
-    /*
-    public void adicionarCurso(Curso curso){
-        this.cursos.add(curso);
-    }
-    */
+    
+
     @Override
     public String getUsername() {
         return login;
@@ -72,8 +69,4 @@ public class Usuario implements UserDetails {
         return true;
     }
 
-    /*
-    public void add(Usuario usuario) {
-    }
-    */
 }

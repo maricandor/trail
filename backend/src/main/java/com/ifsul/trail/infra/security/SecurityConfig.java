@@ -26,17 +26,21 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
+
+    //                    .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+    //                    .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+    //                    .requestMatchers(HttpMethod.GET, "/auth/findAll").permitAll()
                         /*
-                        .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/auth/findAll").permitAll()
-                        .requestMatchers(HttpMethod.DELETE, "/auth/delete/{cursoId}").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/auth/update/{cursoId}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/auth/delete/{i}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/auth/update/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/auth/{cursoId}/{usuarioId}").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/curso/add").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/curso/update/{cursoId}").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/curso/drop/{cursoId}").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/{cursoId}/disciplina").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/vincular-requisito").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/curso/{cursoId}/{disciplinaId}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/disciplina/add").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/disciplina/vincularReq").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/file/upload").hasRole("ADMIN")
                         */
                         .anyRequest().permitAll()
                 )

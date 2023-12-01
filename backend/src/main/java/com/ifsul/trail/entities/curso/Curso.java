@@ -1,8 +1,10 @@
 package com.ifsul.trail.entities.curso;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ifsul.trail.entities.disciplina.Disciplina;
 import com.ifsul.trail.entities.usuario.Usuario;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,7 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "curso")
 @Entity(name = "curso")
-@EqualsAndHashCode(of = "cursoId")
+// @EqualsAndHashCode(of = "cursoId")
 public class Curso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +31,9 @@ public class Curso {
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
+
     @OneToMany(mappedBy = "curso")
+    @JsonIgnore
     private List<Disciplina> disciplinas = new ArrayList<>();
 
     public Curso(CursoRequestDTO data) {
@@ -37,15 +41,12 @@ public class Curso {
         this.descricao = data.descricao();
         this.cargaHoraria = data.cargaHoraria();
     }
-
     public void adicionarDisciplina(Disciplina disciplina){
         this.disciplinas.add(disciplina);
         disciplina.setCurso(this);
     }
-    /*
     public void adicionarUsuario(Usuario usuario){
-        this.usuario.add(usuario);
-        usuario.setCursos((List<Curso>) this);
+        this.usuario= usuario;
     }
-    */
+
 }

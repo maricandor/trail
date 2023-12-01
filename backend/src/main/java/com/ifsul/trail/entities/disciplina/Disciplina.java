@@ -1,5 +1,6 @@
 package com.ifsul.trail.entities.disciplina;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ifsul.trail.entities.curso.Curso;
 import com.ifsul.trail.entities.curso.CursoRequestDTO;
 import jakarta.persistence.*;
@@ -35,9 +36,20 @@ public class Disciplina {
             joinColumns = @JoinColumn(name = "disciplina_id"),
             inverseJoinColumns = @JoinColumn(name = "prerequisito_id")
     )
+    @JsonIgnore
     private List<Disciplina> preRequisitos = new ArrayList<>();
 
     public void adicionarPreRequisito(Disciplina requisito){
         this.preRequisitos.add(requisito);
     }
+
+    public Disciplina(DisciplinaDTO data) {
+        this.nome = data.nome();
+        this.vigencia = data.vigencia();
+        this.cargaHorariaDis = data.cargaHorariaDis();
+        this.codigo = data.codigo();
+        this.periodoLetivo = data.periodoLetivo();
+    }
+
+
 }

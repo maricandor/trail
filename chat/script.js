@@ -3,10 +3,9 @@ const closeBtn = document.querySelector(".close-btn");
 const chatbox = document.querySelector(".chatbox");
 const chatInput = document.querySelector(".chat-input textarea");
 const sendChatBtn = document.querySelector(".chat-input span");
-const backendUrl = "http://localhost:8081";
 
 let userMessage = null;
-const API_KEY = "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";
+const API_KEY = "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";
 const inputInitHeight = chatInput.scrollHeight;
 let conversation = []; // Variável para armazenar o histórico de conversas
 

@@ -11,7 +11,11 @@ import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AuthService implements UserDetailsService {
@@ -23,7 +27,7 @@ public class AuthService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return usuarioRepository.findByLogin(username);
     }
-    /*
+
     public void vincularUsuario(long cursoId, long usuarioId) {
         Usuario usuario = usuarioRepository.findById(usuarioId)
                 .orElseThrow(() -> new EntityNotFoundException("Usuario não encontrada com o ID: " + usuarioId));
@@ -35,5 +39,24 @@ public class AuthService implements UserDetailsService {
         cursoRepository.save(curso);
         usuarioRepository.save(usuario);
     }
-    */
+    public Long authenticateUser(String login, String password) {
+        Usuario usuario = usuarioRepository.findByLogin(login);
+
+        if (usuario != null && passwordMatches(usuario.getPassword(), password)) {
+            return usuario.getId();
+        } else {
+            return null;
+        }
+    }
+
+    private boolean passwordMatches(String hashedPassword, String inputPassword) {
+        return BCrypt.checkpw(inputPassword, hashedPassword);
+    }
+    public Usuario getUserById(Long userId) {
+        Optional<Usuario> optionalUser = usuarioRepository.findById(userId);
+        return optionalUser.orElse(null);
+    }
+    public void save (Usuario usuario){
+        usuarioRepository.save(usuario);
+    }
 }
