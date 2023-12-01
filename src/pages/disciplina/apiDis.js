@@ -95,9 +95,50 @@ export const obterDisciplinasPorCurso = async (cursoId) => {
     }
   };
   
-export const obterDisciplinaPorNome = async () => {
+export const obterDisciplinaPorNome = async (nome) => {
     try {
       const response = await axios.get('http://localhost:8081/disciplina/find/${nome}');
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };  
+  export const obterDisciplinaPorId = async (id) => {
+    try {
+      const response = await axios.get('http://localhost:8081/disciplina/findById/${id}');
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };  
+  export const obterIdDisciplina = async (id) => {
+    try {
+      const response = await axios.get('http://localhost:8081/disciplina/${id}');
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };     
+
+  export const obterDisciplinaPorCurso = async (cursoId) => {
+    try {
+      const response = await axios.get('http://localhost:8081/curso/${cursoId}/disciplinas');
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };  
+  export const obterIdDisPorCurso = async (cursoId) => {
+    try {
+      const response = await axios.get('http://localhost:8081/curso/${cursoId}/getDisIds');
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };  
+  export const obterPreReqs = async (cursoId) => {
+    try {
+      const response = await axios.get('http://localhost:8081/disciplina/${disciplinaId}/preRequisitos');
       return response.data;
     } catch (error) {
       throw error;

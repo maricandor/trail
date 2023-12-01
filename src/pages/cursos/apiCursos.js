@@ -90,3 +90,19 @@ export const obterCursos = async () => {
       throw error;
     }
   };  
+  export const obterCursoPorId = async (id) => {
+    try {
+      const response = await axios.get('http://localhost:8081/curso/findById/${id}');
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }; 
+  export const obterIdCurso = async (id) => {
+    try {
+      const response = await axios.get('http://localhost:8081/curso/${id}');
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };      

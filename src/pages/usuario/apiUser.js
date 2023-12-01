@@ -92,4 +92,19 @@ export const excluirUsuario = async (id) => {
       throw error;
     }
   };
-    
+  export const obterUsuarioPorId = async (id) => {
+    try {
+      const response = await axios.get('http://localhost:8081/auth/findById/${id}');
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };      
+  export const obterIdUsuario = async (id) => {
+    try {
+      const response = await axios.get('http://localhost:8081/auth/${id}');
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };      
