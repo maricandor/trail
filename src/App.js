@@ -2,12 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Inicio from "./pages/Inicio";
 import Cursos from "./pages/Cursos";
+import Curso from "./pages/Curso";
 import Login from "./pages/Login";
 import Disciplina from "./pages/Disciplina";
-import UpdateUsuario from "./pages/UpdateUsuario";
-import UpdateCurso from "./pages/UpdateCurso";
-import UpdateDisciplina from "./pages/UpdateDis";
-import VincularDis from "./pages/VincularDis";
+import Usuario from "./pages/Usuario";
 import UserDashboard from "./pagesUser/UserDashboard";
 import ChatUpload from "./pagesUser/ChatUpload";
 import Navbar from './components/Navbar';
@@ -22,13 +20,11 @@ function App() {
       <Routes>
         <Route path="/inicio" exact element={ <Inicio/> } />
         <Route path="/cursos" exact element={ <Cursos/> } />
+        <Route path="/curso" exact element={ <Curso/> } />
         <Route path="/disciplinas" exact element={ <Disciplina/> } />
         <Route path="/login" exact element={ <Login /> } />
-        <Route path="/vincular" exact element={ <VincularDis /> } />
-        <Route path="/updateUser" exact element={ <UpdateUsuario /> } />
-        <Route path="/updateCurso" exact element={ <UpdateCurso /> } />
-        <Route path="/updateDisciplina" exact element={ <UpdateDisciplina /> } />
         <Route path="/cadastro" exact element={ <Cadastro /> } />
+        <Route path="/usuario" exact element={<Usuario /> } />    
         <Route path="/chatUpload" exact element={ <ChatUpload /> } />
         <Route path="/userDashboard" exact element={ <UserDashboard /> } />
         <Route path="/userPage" exact element={ <UserPage /> } />
